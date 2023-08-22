@@ -1,6 +1,6 @@
-# Summery
+# Summary
 
-[Summery](README.md)
+[Summary](README.md)
 
 - [Introduction](introduction.md)
     - [Bluetooth Stack Comparison](introduction/bluetooth.md)
