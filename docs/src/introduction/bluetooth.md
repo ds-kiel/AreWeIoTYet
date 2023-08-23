@@ -72,93 +72,93 @@ We compare six operating systems and their bluetooth stacks on eleven characteri
 </tr>
 <tr>
 <td>Advertising (Broadcaster)</td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
 </tr>
 <tr>
 <td>Connecting (central)</td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
 </tr>
 <tr>
 <td>Scanning (observer)</td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
 </tr>
 <tr>
 <td>Connectable (peripheral)</td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
 </tr>
 <tr>
 <td>Over-air device firmware updates</td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-xmark"></i></td>
 </tr>
 <tr>
 <td>Asynchronous, event-driven behaviour</td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-xmark"></i></td>
 </tr>
 <tr>
 <td>Implemented in Rust</td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-xmark"></i></td>
 </tr>
 <tr>
 <td>Implemented in C</td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
 </tr>
 <tr>
 <td>Bluetooth Mesh</td>
 <td>Maybe</i></td>
 <td>Maybe</td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
 </tr>
 <tr>
 <td>L2CAP Connections</td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-xmark"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
-<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-xmark"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
+<td><i class="fa fa-check"></i></td>
 </tr>
 </table>  
 
