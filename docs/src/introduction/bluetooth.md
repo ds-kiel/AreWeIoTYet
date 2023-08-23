@@ -3,12 +3,12 @@
 <table style="width: 100%;">
 <colgroup>
     <col span = "1">
-    <col id="em_tab" span="1">
-    <col id="dr_tab" span="1">
-    <col id="to_tab" span="1">
-    <col id="ri_tab" span="1">
-    <col id="ze_tab" span="1">
-    <col id="fr_tab" span="1">
+    <col id="em_tab" span="1" style=visibility:collapse>
+    <col id="dr_tab" span="1" style=visibility:collapse>
+    <col id="to_tab" span="1" style=visibility:collapse>
+    <col id="ri_tab" span="1" style=visibility:collapse>
+    <col id="ze_tab" span="1" style=visibility:collapse>
+    <col id="fr_tab" span="1" style=visibility:collapse>
   </colgroup>
 <tr>
 <th></th>
@@ -148,13 +148,6 @@
   </div>
 </fieldset>
 
-<div id="em-elric"> Embassy </div>
-<div id="dr-elric"> Drogue </div>
-<div id="to-elric"> TockOS </div>
-<div id="ri-elric"> RiotOS </div>
-<div id="ze-elric"> ZephyrOS </div>
-<div id="fr-elric"> FreeRTOS </div>
-
 <script>
     const embassy = document.querySelector('#embassy');
     embassy.addEventListener("change", updateDisplay);
@@ -170,43 +163,43 @@
     freertos.addEventListener("change", updateDisplay);
 
     function updateDisplay() {
-        var em_link = document.getElementById('em-tab');
-        if (embassy.checked) {
+        var em_link = document.getElementById('em_tab');
+        if (!embassy.checked) {
             em_link.style.visibility = 'collapse';
         } else {
             em_link.style.visibility = 'visible';
         }
 
-        var dr_link = document.getElementById('dr-tab');
-        if (drogue.checked) {
+        var dr_link = document.getElementById('dr_tab');
+        if (!drogue.checked) {
             dr_link.style.visibility = 'collapse';
         } else {
             dr_link.style.visibility = 'visible';
         }
 
-        var to_link = document.getElementById('to-tab');
-        if (tockos.checked) {
+        var to_link = document.getElementById('to_tab');
+        if (!tockos.checked) {
             to_link.style.visibility = 'collapse';
         } else {
             to_link.style.visibility = 'visible';
         }
 
-        var ri_link = document.getElementById('ri-tab');
-        if (riotos.checked) {
+        var ri_link = document.getElementById('ri_tab');
+        if (!riotos.checked) {
             ri_link.style.visibility = 'collapse';
         } else {
             ri_link.style.visibility = 'visible';
         }
 
-        var ze_link = document.getElementById('ze-tab');
-        if (zephyros.checked) {
+        var ze_link = document.getElementById('ze_tab');
+        if (!zephyros.checked) {
             ze_link.style.visibility = 'collapse';
         } else {
             ze_link.style.visibility = 'visible';
         }
 
-        var fr_link = document.getElementById('fr-tab');
-        if (freertos.checked) {
+        var fr_link = document.getElementById('fr_tab');
+        if (!freertos.checked) {
             fr_link.style.visibility = 'collapse';
         } else {
             fr_link.style.visibility = 'visible';
