@@ -1,17 +1,124 @@
 # Bluetooth Stack Comparison
-| Chacteristics on BLE Stack | Embassy | Drogue OS | TockOS | RiotOS | ZephyrOS | FreeRTOS |  
-|---|---|---|---|---|---|---|  
-| Number of concurrent links | 20 | 20 | - | 32 (NimBLE) | unlimited | 20-32 |
-| Advertising (Broadcaster) | SoftDevice | SoftDevice | TockOS Stack | NimBLE/ Skald | Zephyr Stack | SoftDevice/ NimBLE |
-|Connecting (central) | SoftDevice | SoftDevice |-| NimBLE | ZephyrStack | SoftDevice/NimBLE |
-| Scanning (Observer) | SoftDevice | SoftDevice | TockOS Stack | NimBLE | Zephyr Stack | SoftDevice/ NimBLE|
-|Connectable (peripheral) | SoftDevice | SoftDevice |-| NimBLE | ZephyrStack | SoftDevice/NimBLE |
-Over-air device firmware updates | SoftDevice | SoftDevice |-|-|-|-|
-| Asynchronous, event-driven behaviour | SoftDevice | SoftDevice |-|-|-|-|
-|Implemented in Rust |-|-| TockOS Stack |-|-|-|
-| Implemented in C | SoftDevice | SoftDevice |-| NimBLE | ZephyrStack | SoftDevice/ NimBLE |
-| Bluetooth Mesh | (SoftDevice) | (SoftDevice) |-| NimBLE | ZephyrStack | NimBLE |
-L2CAP Connections | SoftDevice | SoftDevice |-| NimBLE | ZephyrStack | SoftDevice/ NimBLE |
+
+<table style="width: 100%;">
+<colgroup>
+    <col span = "1">
+    <col id="em_tab" span="1">
+    <col id="dr_tab" span="1">
+    <col id="to_tab" span="1">
+    <col id="ri_tab" span="1">
+    <col id="ze_tab" span="1">
+    <col id="fr_tab" span="1">
+  </colgroup>
+<tr>
+<th></th>
+<th>Embassy</th>
+<th>Drogue OS</th>
+<th>TockOS</th>
+<th>RiotOS</th>
+<th>ZephyrOS</th>
+<th>FreeRTOS</th>
+</tr>
+<tr>
+<td>Number of concurrent links</td>
+<td>20</td>
+<td>20</td>
+<td>-</td>
+<td>32 (NimBLE)</td>
+<td>unlimited</td>
+<td>20-32</td>
+</tr>
+<tr>
+<td>Advertising (Broadcaster)</td>
+<td>SoftDevice</td>
+<td>SoftDevice</td>
+<td>TockOS Stack</td>
+<td>NimBLE/ Skald</td>
+<td>Zephyr Stack</td>
+<td>SoftDevice/ NimBLE</td>
+</tr>
+<tr>
+<td>Connecting (central)</td>
+<td>SoftDevice</td>
+<td>SoftDevice</td>
+<td>-</td>
+<td>NimBLE</td>
+<td>Zephyr Stack</td>
+<td>SoftDevice/ NimBLE</td>
+</tr>
+<tr>
+<td>Scanning (observer)</td>
+<td>SoftDevice</td>
+<td>SoftDevice</td>
+<td>TockOS Stack</td>
+<td>NimBLE</td>
+<td>Zephyr Stack</td>
+<td>SoftDevice/ NimBLE</td>
+</tr>
+<tr>
+<td>Connectable (peripheral)</td>
+<td>SoftDevice</td>
+<td>SoftDevice</td>
+<td>-</td>
+<td>NimBLE</td>
+<td>Zephyr Stack</td>
+<td>SoftDevice/ NimBLE</td>
+</tr>
+<tr>
+<td>Over-air device firmware updates</td>
+<td>SoftDevice</td>
+<td>SoftDevice</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Asynchronous, event-driven behaviour</td>
+<td>SoftDevice</td>
+<td>SoftDevice</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Implemented in Rust</td>
+<td>-</td>
+<td>-</td>
+<td>TockOS Stack</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Implemented in C</td>
+<td>SoftDevice</td>
+<td>SoftDevice</td>
+<td>-</td>
+<td>NimBLE</td>
+<td>Zephyr Stack</td>
+<td>SoftDevice/ NimBLE</td>
+</tr>
+<tr>
+<td>Bluetooth Mesh</td>
+<td>(SoftDevice)</td>
+<td>(SoftDevice)</td>
+<td>-</td>
+<td>NimBLE</td>
+<td>Zephyr Stack</td>
+<td>NimBLE</td>
+</tr>
+<tr>
+<td>L2CAP Connections</td>
+<td>SoftDevice</td>
+<td>SoftDevice</td>
+<td>-</td>
+<td>NimBLE</td>
+<td>Zephyr Stack</td>
+<td>SoftDevice/ NimBLE</td>
+</tr>
+</table>
 
 <fieldset id="Checkboxes">
   <legend>Choose the OS's to be compared </legend>
@@ -63,44 +170,44 @@ L2CAP Connections | SoftDevice | SoftDevice |-| NimBLE | ZephyrStack | SoftDevic
     freertos.addEventListener("change", updateDisplay);
 
     function updateDisplay() {
-        var em_link = document.getElementById('em-elric');
+        var em_link = document.getElementById('em-tab');
         if (embassy.checked) {
-            em_link.style.visibility = 'hidden';
+            em_link.style.visibility = 'collapse';
         } else {
             em_link.style.visibility = 'visible';
         }
 
-        var dr_link = document.getElementById('dr-elric');
+        var dr_link = document.getElementById('dr-tab');
         if (drogue.checked) {
-            dr_link.style.visibility = 'hidden';
+            dr_link.style.visibility = 'collapse';
         } else {
             dr_link.style.visibility = 'visible';
         }
 
-        var to_link = document.getElementById('to-elric');
+        var to_link = document.getElementById('to-tab');
         if (tockos.checked) {
-            to_link.style.visibility = 'hidden';
+            to_link.style.visibility = 'collapse';
         } else {
             to_link.style.visibility = 'visible';
         }
 
-        var ri_link = document.getElementById('ri-elric');
+        var ri_link = document.getElementById('ri-tab');
         if (riotos.checked) {
-            ri_link.style.visibility = 'hidden';
+            ri_link.style.visibility = 'collapse';
         } else {
             ri_link.style.visibility = 'visible';
         }
 
-        var ze_link = document.getElementById('ze-elric');
+        var ze_link = document.getElementById('ze-tab');
         if (zephyros.checked) {
-            ze_link.style.visibility = 'hidden';
+            ze_link.style.visibility = 'collapse';
         } else {
             ze_link.style.visibility = 'visible';
         }
 
-        var fr_link = document.getElementById('fr-elric');
+        var fr_link = document.getElementById('fr-tab');
         if (freertos.checked) {
-            fr_link.style.visibility = 'hidden';
+            fr_link.style.visibility = 'collapse';
         } else {
             fr_link.style.visibility = 'visible';
         }
