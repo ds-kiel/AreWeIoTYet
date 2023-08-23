@@ -1,6 +1,38 @@
 # Bluetooth Stack Comparison
 
-<table style="width: 100%;">
+
+<!-- Checkboxes to toggle the visibility of the columns of the table -->
+<fieldset id="Checkboxes">
+  <legend>Choose the OS's to be compared </legend>
+  <div>
+    <input type="checkbox" id="embassy" name="interest" value="embassy"/>
+    <label for="embassy">Embassy</label>
+  </div>
+  <div>
+    <input type="checkbox" id="drogue" name="interest" value="drogue" />
+    <label for="drogue">Drogue OS</label>
+  </div>
+  <div>
+    <input type="checkbox" id="tockos" name="interest" value="tockos"/>
+    <label for="tockos">TockOS</label>
+  </div>
+  <div>
+    <input type="checkbox" id="riotos" name="interest" value="riotos" />
+    <label for="riotos">RiotOS</label>
+  </div>
+  <div>
+    <input type="checkbox" id="zephyros" name="interest" value="zephyros"/>
+    <label for="zephyros">ZephyrOS</label>
+  </div>
+  <div>
+    <input type="checkbox" id="freertos" name="interest" value="freertos" />
+    <label for="freertos">FreeRTOS</label>
+  </div>
+</fieldset>
+
+<!-- The actual table -->
+<table align="left" style="width: 100%;">
+<!-- Assigning ids to each column to be able to collapse them with javascript later -->
 <colgroup>
     <col span = "1">
     <col id="em_tab" span="1" style=visibility:collapse>
@@ -10,6 +42,7 @@
     <col id="ze_tab" span="1" style=visibility:collapse>
     <col id="fr_tab" span="1" style=visibility:collapse>
   </colgroup>
+<!-- Content of the table -->
 <tr>
 <th></th>
 <th>Embassy</th>
@@ -120,34 +153,9 @@
 </tr>
 </table>
 
-<fieldset id="Checkboxes">
-  <legend>Choose the OS's to be compared </legend>
-  <div>
-    <input type="checkbox" id="embassy" name="interest" value="embassy"/>
-    <label for="embassy">Embassy</label>
-  </div>
-  <div>
-    <input type="checkbox" id="drogue" name="interest" value="drogue" />
-    <label for="drogue">Drogue OS</label>
-  </div>
-  <div>
-    <input type="checkbox" id="tockos" name="interest" value="tockos"/>
-    <label for="tockos">TockOS</label>
-  </div>
-  <div>
-    <input type="checkbox" id="riotos" name="interest" value="riotos" />
-    <label for="riotos">RiotOS</label>
-  </div>
-  <div>
-    <input type="checkbox" id="zephyros" name="interest" value="zephyros"/>
-    <label for="zephyros">ZephyrOS</label>
-  </div>
-  <div>
-    <input type="checkbox" id="freertos" name="interest" value="freertos" />
-    <label for="freertos">FreeRTOS</label>
-  </div>
-</fieldset>
-
+<!-- Javascript part to toggle the visibility of the columns -->
+<!-- Yes, iterating through the checkboxes would have been more beautiful -->
+<!-- Yes, iterating through the columns would also have been more beautiful -->
 <script>
     const embassy = document.querySelector('#embassy');
     embassy.addEventListener("change", updateDisplay);
