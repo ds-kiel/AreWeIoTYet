@@ -1,5 +1,5 @@
 # Bluetooth Stack Comparison
-
+We compare six operating systems and their bluetooth stacks on eleven characteristics. The intention is to enable a feeling on what the different operating systems are capable of. Afterwards, we give a short summary on the different stacks used.
 
 <!-- Checkboxes to toggle the visibility of the columns of the table -->
 <fieldset id="Checkboxes">
@@ -31,7 +31,7 @@
 </fieldset>
 
 <!-- The actual table -->
-<table align="left" style="width: 100%;">
+<table text-align="left" style="width: 100%;">
 <!-- Assigning ids to each column to be able to collapse them with javascript later -->
 <colgroup>
     <col span = "1">
@@ -53,105 +53,128 @@
 <th>FreeRTOS</th>
 </tr>
 <tr>
+<td>Bluetooth Stack</td>
+<td>SoftDevice</td>
+<td>SoftDevice</td>
+<td>TockOS Stack</td>
+<td>NimBLE</td>
+<td>Zephyr Stack</td>
+<td>SoftDevice & NimBLE</td>
+</tr>
+<tr>
 <td>Number of concurrent links</td>
 <td>20</td>
 <td>20</td>
 <td>-</td>
-<td>32 (NimBLE)</td>
+<td>32</td>
 <td>unlimited</td>
 <td>20-32</td>
 </tr>
 <tr>
 <td>Advertising (Broadcaster)</td>
-<td>SoftDevice</td>
-<td>SoftDevice</td>
-<td>TockOS Stack</td>
-<td>NimBLE/ Skald</td>
-<td>Zephyr Stack</td>
-<td>SoftDevice/ NimBLE</td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
 </tr>
 <tr>
 <td>Connecting (central)</td>
-<td>SoftDevice</td>
-<td>SoftDevice</td>
-<td>-</td>
-<td>NimBLE</td>
-<td>Zephyr Stack</td>
-<td>SoftDevice/ NimBLE</td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
 </tr>
 <tr>
 <td>Scanning (observer)</td>
-<td>SoftDevice</td>
-<td>SoftDevice</td>
-<td>TockOS Stack</td>
-<td>NimBLE</td>
-<td>Zephyr Stack</td>
-<td>SoftDevice/ NimBLE</td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
 </tr>
 <tr>
 <td>Connectable (peripheral)</td>
-<td>SoftDevice</td>
-<td>SoftDevice</td>
-<td>-</td>
-<td>NimBLE</td>
-<td>Zephyr Stack</td>
-<td>SoftDevice/ NimBLE</td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
 </tr>
 <tr>
 <td>Over-air device firmware updates</td>
-<td>SoftDevice</td>
-<td>SoftDevice</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
 </tr>
 <tr>
 <td>Asynchronous, event-driven behaviour</td>
-<td>SoftDevice</td>
-<td>SoftDevice</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
 </tr>
 <tr>
 <td>Implemented in Rust</td>
-<td>-</td>
-<td>-</td>
-<td>TockOS Stack</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
 </tr>
 <tr>
 <td>Implemented in C</td>
-<td>SoftDevice</td>
-<td>SoftDevice</td>
-<td>-</td>
-<td>NimBLE</td>
-<td>Zephyr Stack</td>
-<td>SoftDevice/ NimBLE</td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
 </tr>
 <tr>
 <td>Bluetooth Mesh</td>
-<td>(SoftDevice)</td>
-<td>(SoftDevice)</td>
-<td>-</td>
-<td>NimBLE</td>
-<td>Zephyr Stack</td>
-<td>NimBLE</td>
+<td>Maybe</i></td>
+<td>Maybe</td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
 </tr>
 <tr>
 <td>L2CAP Connections</td>
-<td>SoftDevice</td>
-<td>SoftDevice</td>
-<td>-</td>
-<td>NimBLE</td>
-<td>Zephyr Stack</td>
-<td>SoftDevice/ NimBLE</td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-xmark"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
+<td><i class="fa-solid fa-check"></i></td>
 </tr>
-</table>
+</table>  
+
+Some of the operating systems use the same underlying bluetooth stack. Thus we only have four different bluetooth stacks:
+1. SoftDevice
+2. NimBLE
+3. Zephyr Stack
+4. TockOS Stack
+
+### SoftDevice
+
+### NimBLE
+
+### Zephyr Stack
+
+### TockOS Stack
 
 <!-- Javascript part to toggle the visibility of the columns -->
 <!-- Yes, iterating through the checkboxes would have been more beautiful -->
