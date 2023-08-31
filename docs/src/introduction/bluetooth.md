@@ -24,10 +24,6 @@ We compare six operating systems and their bluetooth stacks on eleven characteri
     <input type="checkbox" id="zephyros" name="interest" value="zephyros"/>
     <label for="zephyros">ZephyrOS</label>
   </div>
-  <div>
-    <input type="checkbox" id="freertos" name="interest" value="freertos" />
-    <label for="freertos">FreeRTOS</label>
-  </div>
 </fieldset>
 
 <!-- The actual table -->
@@ -40,7 +36,6 @@ We compare six operating systems and their bluetooth stacks on eleven characteri
     <col id="to_tab" span="1" style=visibility:collapse>
     <col id="ri_tab" span="1" style=visibility:collapse>
     <col id="ze_tab" span="1" style=visibility:collapse>
-    <col id="fr_tab" span="1" style=visibility:collapse>
   </colgroup>
 <!-- Content of the table -->
 <tr>
@@ -50,7 +45,6 @@ We compare six operating systems and their bluetooth stacks on eleven characteri
 <th>TockOS</th>
 <th>RiotOS</th>
 <th>ZephyrOS</th>
-<th>FreeRTOS</th>
 </tr>
 <tr>
 <td>Bluetooth Stack</td>
@@ -59,20 +53,17 @@ We compare six operating systems and their bluetooth stacks on eleven characteri
 <td>TockOS Stack</td>
 <td>NimBLE</td>
 <td>Zephyr Stack</td>
-<td>SoftDevice & NimBLE</td>
 </tr>
 <tr>
 <td>Number of concurrent links</td>
 <td>20</td>
 <td>20</td>
-<td>-</td>
+<td><i class="fa fa-xmark"></i></td>
 <td>32</td>
 <td>unlimited</td>
-<td>20-32</td>
 </tr>
 <tr>
 <td>Advertising (Broadcaster)</td>
-<td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
@@ -86,11 +77,9 @@ We compare six operating systems and their bluetooth stacks on eleven characteri
 <td><i class="fa fa-xmark"></i></td>
 <td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
-<td><i class="fa fa-check"></i></td>
 </tr>
 <tr>
 <td>Scanning (observer)</td>
-<td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
@@ -104,13 +93,11 @@ We compare six operating systems and their bluetooth stacks on eleven characteri
 <td><i class="fa fa-xmark"></i></td>
 <td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
-<td><i class="fa fa-check"></i></td>
 </tr>
 <tr>
 <td>Over-air device firmware updates</td>
 <td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
-<td><i class="fa fa-xmark"></i></td>
 <td><i class="fa fa-xmark"></i></td>
 <td><i class="fa fa-xmark"></i></td>
 <td><i class="fa fa-xmark"></i></td>
@@ -122,14 +109,12 @@ We compare six operating systems and their bluetooth stacks on eleven characteri
 <td><i class="fa fa-xmark"></i></td>
 <td><i class="fa fa-xmark"></i></td>
 <td><i class="fa fa-xmark"></i></td>
-<td><i class="fa fa-xmark"></i></td>
 </tr>
 <tr>
 <td>Implemented in Rust</td>
 <td><i class="fa fa-xmark"></i></td>
 <td><i class="fa fa-xmark"></i></td>
 <td><i class="fa fa-check"></i></td>
-<td><i class="fa fa-xmark"></i></td>
 <td><i class="fa fa-xmark"></i></td>
 <td><i class="fa fa-xmark"></i></td>
 </tr>
@@ -140,7 +125,6 @@ We compare six operating systems and their bluetooth stacks on eleven characteri
 <td><i class="fa fa-xmark"></i></td>
 <td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
-<td><i class="fa fa-check"></i></td>
 </tr>
 <tr>
 <td>Bluetooth Mesh</td>
@@ -149,14 +133,12 @@ We compare six operating systems and their bluetooth stacks on eleven characteri
 <td><i class="fa fa-xmark"></i></td>
 <td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
-<td><i class="fa fa-check"></i></td>
 </tr>
 <tr>
 <td>L2CAP Connections</td>
 <td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-xmark"></i></td>
-<td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
 <td><i class="fa fa-check"></i></td>
 </tr>
@@ -190,8 +172,6 @@ Some of the operating systems use the same underlying bluetooth stack. Thus we o
     riotos.addEventListener("change", updateDisplay);
     const zephyros = document.querySelector('#zephyros');
     zephyros.addEventListener("change", updateDisplay);
-    const freertos = document.querySelector('#freertos');
-    freertos.addEventListener("change", updateDisplay);
 
     function updateDisplay() {
         var em_link = document.getElementById('em_tab');
@@ -227,13 +207,6 @@ Some of the operating systems use the same underlying bluetooth stack. Thus we o
             ze_link.style.visibility = 'collapse';
         } else {
             ze_link.style.visibility = 'visible';
-        }
-
-        var fr_link = document.getElementById('fr_tab');
-        if (!freertos.checked) {
-            fr_link.style.visibility = 'collapse';
-        } else {
-            fr_link.style.visibility = 'visible';
         }
     }
 </script>    
