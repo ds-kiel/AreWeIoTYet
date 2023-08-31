@@ -5,23 +5,23 @@ We compare six operating systems and their bluetooth stacks on eleven characteri
 <fieldset id="Checkboxes">
   <legend>Choose the OS's to be compared </legend>
   <div>
-    <input type="checkbox" id="embassy" name="interest" value="embassy"/>
+    <input type="checkbox" id="embassy" name="interest" value="embassy"checked/>
     <label for="embassy">Embassy</label>
   </div>
   <div>
-    <input type="checkbox" id="drogue" name="interest" value="drogue" />
+    <input type="checkbox" id="drogue" name="interest" value="drogue" checked/>
     <label for="drogue">Drogue OS</label>
   </div>
   <div>
-    <input type="checkbox" id="tockos" name="interest" value="tockos"/>
+    <input type="checkbox" id="tockos" name="interest" value="tockos" checked/>
     <label for="tockos">TockOS</label>
   </div>
   <div>
-    <input type="checkbox" id="riotos" name="interest" value="riotos" />
+    <input type="checkbox" id="riotos" name="interest" value="riotos" checked/>
     <label for="riotos">RiotOS</label>
   </div>
   <div>
-    <input type="checkbox" id="zephyros" name="interest" value="zephyros"/>
+    <input type="checkbox" id="zephyros" name="interest" value="zephyros" checked/>
     <label for="zephyros">ZephyrOS</label>
   </div>
 </fieldset>
@@ -31,11 +31,11 @@ We compare six operating systems and their bluetooth stacks on eleven characteri
 <!-- Assigning ids to each column to be able to collapse them with javascript later -->
 <colgroup>
     <col span = "1">
-    <col id="em_tab" span="1" style=visibility:collapse>
-    <col id="dr_tab" span="1" style=visibility:collapse>
-    <col id="to_tab" span="1" style=visibility:collapse>
-    <col id="ri_tab" span="1" style=visibility:collapse>
-    <col id="ze_tab" span="1" style=visibility:collapse>
+    <col id="em_tab" span="1" style=visibility:visible>
+    <col id="dr_tab" span="1" style=visibility:visible>
+    <col id="to_tab" span="1" style=visibility:visible>
+    <col id="ri_tab" span="1" style=visibility:visible>
+    <col id="ze_tab" span="1" style=visibility:visible>
   </colgroup>
 <!-- Content of the table -->
 <tr>
