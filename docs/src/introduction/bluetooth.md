@@ -1,5 +1,5 @@
 # Bluetooth Stack Comparison
-We compare six operating systems and their bluetooth stacks on eleven characteristics. The intention is to enable a feeling on what the different operating systems are capable of. Afterwards, we give a short summary on the different stacks used.
+We compare five operating systems and their bluetooth stacks on eleven characteristics. The intention is to enable a feeling on what the different operating systems are capable of. Afterwards, we give a short summary on the different stacks used.
 
 <!-- Checkboxes to toggle the visibility of the columns of the table -->
 <fieldset id="Checkboxes">
@@ -151,12 +151,16 @@ Some of the operating systems use the same underlying bluetooth stack. Thus we o
 4. TockOS Stack
 
 ### SoftDevice
+The [SoftDevice](https://infocenter.nordicsemi.com/index.jsp?topic=%2Fsds_s140%2FSDS%2Fs1xx%2Fble_protocol_stack%2Fble_protocol_stack.html) includes a BLE protocols stack which is compliant to Bluetooth 5.1 (Host & Controller). It is built and provided by Nordic Semiconductor, so the  producer of the nRF52840 DK board we targeted. Thus, it provides the full support those boards are capable of. Sadly, it is not Open Source and written in C. So the usage of this stack makes it impossible to build an application purely based on Rust. But, it clearly enables the best usage of the hardware.
 
 ### NimBLE
+[Apache NimBLE](https://github.com/apache/mynewt-nimble) is a Bluetooth 5.4 compliant bluetooth stack. It is part of the apache Mynewt project which "is an open source operating system for tiny embedded devices" ([Apache Mynewt](https://github.com/apache/mynewt-core)). NimBLE approaches to replace the SoftDevice and thus supports multiple of Nordics chipsets. It is also written in C but it is open source which might make it favorable over Nordics SoftDevice.
 
 ### Zephyr Stack
+The [Zephyrs Bluetooth Stack](https://docs.zephyrproject.org/latest/connectivity/bluetooth/overview.html) is Bluetooth 5.3 compliant. It is part of the zephyrproject or the Zephyr RTOS which is open source and programmed in C. While the stack overall is fine, bringing it together with Rust is a hussle as described later in 3.5 ZephyrOS.
 
 ### TockOS Stack
+The [TockOS Bluetooth Stack](https://github.com/tock/tock/blob/master/doc/BluetoothLEStack.md) is part of [TockOS](https://github.com/tock/tock), a secure open source operating system for embedded devices which is completely written in Rust. Sadly, the Tock OS Bluetooth Stack is still quite minimal, which results in not being able to connect. This limits the capability of this stack to advertising and scanning.
 
 <!-- Javascript part to toggle the visibility of the columns -->
 <!-- Yes, iterating through the checkboxes would have been more beautiful -->
