@@ -7,4 +7,6 @@ To answer the question **Are We IoT Yet?** we defined two subquestions to be ans
 
 For simulation we used [Renode](https://renode.io/) while using the nRF52840dk board as hardware to test and compare the results on.  
 
+In this book we provide a comparison on five frameworks we tested in terms of BLE communication using our setup. Additionally, we give instructions and examples for each of the frameworks.
+
 Our results are that the perfect framework to develop IoT devices with purely Rust does not exists yet. If it is feasible to miss out on a simulation and safe testing environment then [Embassy](embassy/README.md) is a good ways to develop IoT devices. If it is neccessary to simulate implementations before flashing them to real hardware then [RiotOS](riotos/README.md) is a well-tested major RTOS that is used in industry and on universities. But for writing Rust it is currentyl neccessary to be skilled and C as well.  
