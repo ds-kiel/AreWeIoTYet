@@ -157,7 +157,7 @@ The [SoftDevice](https://infocenter.nordicsemi.com/index.jsp?topic=%2Fsds_s140%2
 [Apache NimBLE](https://github.com/apache/mynewt-nimble) is a Bluetooth 5.4 compliant bluetooth stack. It is part of the apache Mynewt project which "is an open source operating system for tiny embedded devices" ([Apache Mynewt](https://github.com/apache/mynewt-core)). NimBLE approaches to replace the SoftDevice and thus supports multiple of Nordics chipsets. It is also written in C but it is open source which might make it favorable over Nordics SoftDevice.
 
 ### Zephyr Stack
-The [Zephyrs Bluetooth Stack](https://docs.zephyrproject.org/latest/connectivity/bluetooth/overview.html) is Bluetooth 5.3 compliant. It is part of the zephyrproject or the Zephyr RTOS which is open source and programmed in C. While the stack overall is fine, bringing it together with Rust is a hussle as described later in 3.5 ZephyrOS.
+The [Zephyrs Bluetooth Stack](https://docs.zephyrproject.org/latest/connectivity/bluetooth/overview.html) is Bluetooth 5.3 compliant. It is part of the zephyrproject or the Zephyr RTOS which is open source and programmed in C. While the stack overall is fine, bringing it together with Rust is a hussle as described later in [ZephyrOS](../zephyros/README.md).
 
 ### TockOS Stack
 The [TockOS Bluetooth Stack](https://github.com/tock/tock/blob/master/doc/BluetoothLEStack.md) is part of [TockOS](https://github.com/tock/tock), a secure open source operating system for embedded devices which is completely written in Rust. Sadly, the Tock OS Bluetooth Stack is still quite minimal, which results in not being able to connect. This limits the capability of this stack to advertising and scanning.
