@@ -8,3 +8,5 @@
 | DrogueIOT | Rust     |      😄     |      😄       |      ☹️        |
 | Zepyhr    | C        |     😄      |       ☹️      |       😄       |
 
+
+## Other Considered Operation Systems

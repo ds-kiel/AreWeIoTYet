@@ -13,16 +13,16 @@ We compare five operating systems and their bluetooth stacks on eleven character
     <label for="drogue">Drogue OS</label>
   </div>
   <div>
-    <input type="checkbox" id="tockos" name="interest" value="tockos" checked/>
-    <label for="tockos">TockOS</label>
+    <input type="checkbox" id="tock" name="interest" value="tock" checked/>
+    <label for="tock">tock</label>
   </div>
   <div>
-    <input type="checkbox" id="riotos" name="interest" value="riotos" checked/>
-    <label for="riotos">RiotOS</label>
+    <input type="checkbox" id="riot" name="interest" value="riot" checked/>
+    <label for="riot">RIOT</label>
   </div>
   <div>
-    <input type="checkbox" id="zephyros" name="interest" value="zephyros" checked/>
-    <label for="zephyros">ZephyrOS</label>
+    <input type="checkbox" id="zephyr" name="interest" value="zephyr" checked/>
+    <label for="zephyr">Zephyr</label>
   </div>
 </fieldset>
 
@@ -42,15 +42,15 @@ We compare five operating systems and their bluetooth stacks on eleven character
 <th></th>
 <th>Embassy</th>
 <th>Drogue OS</th>
-<th>TockOS</th>
-<th>RiotOS</th>
-<th>ZephyrOS</th>
+<th>tock</th>
+<th>RIOT</th>
+<th>Zephyr</th>
 </tr>
 <tr>
 <td>Bluetooth Stack</td>
 <td>SoftDevice</td>
 <td>SoftDevice</td>
-<td>TockOS Stack</td>
+<td>tock Stack</td>
 <td>NimBLE</td>
 <td>Zephyr Stack</td>
 </tr>
@@ -148,7 +148,7 @@ Some of the operating systems use the same underlying bluetooth stack. Thus we o
 1. SoftDevice
 2. NimBLE
 3. Zephyr Stack
-4. TockOS Stack
+4. tock Stack
 
 ### SoftDevice
 The [SoftDevice](https://infocenter.nordicsemi.com/index.jsp?topic=%2Fsds_s140%2FSDS%2Fs1xx%2Fble_protocol_stack%2Fble_protocol_stack.html) includes a BLE protocols stack which is compliant to Bluetooth 5.1 (Host & Controller). It is built and provided by Nordic Semiconductor, so the  producer of the nRF52840 DK board we targeted. Thus, it provides the full support those boards are capable of. Sadly, it is not Open Source and written in C. So the usage of this stack makes it impossible to build an application purely based on Rust. But, it clearly enables the best usage of the hardware.
@@ -157,10 +157,10 @@ The [SoftDevice](https://infocenter.nordicsemi.com/index.jsp?topic=%2Fsds_s140%2
 [Apache NimBLE](https://github.com/apache/mynewt-nimble) is a Bluetooth 5.4 compliant bluetooth stack. It is part of the apache Mynewt project which "is an open source operating system for tiny embedded devices" ([Apache Mynewt](https://github.com/apache/mynewt-core)). NimBLE approaches to replace the SoftDevice and thus supports multiple of Nordics chipsets. It is also written in C but it is open source which might make it favorable over Nordics SoftDevice.
 
 ### Zephyr Stack
-The [Zephyrs Bluetooth Stack](https://docs.zephyrproject.org/latest/connectivity/bluetooth/overview.html) is Bluetooth 5.3 compliant. It is part of the zephyrproject or the Zephyr RTOS which is open source and programmed in C. While the stack overall is fine, bringing it together with Rust is a hussle as described later in [ZephyrOS](../zephyros/README.md).
+The [Zephyrs Bluetooth Stack](https://docs.zephyrproject.org/latest/connectivity/bluetooth/overview.html) is Bluetooth 5.3 compliant. It is part of the zephyrproject or the Zephyr RTOS which is open source and programmed in C. While the stack overall is fine, bringing it together with Rust is a hussle as described later in [Zephyr](../zephyr/README.md).
 
-### TockOS Stack
-The [TockOS Bluetooth Stack](https://github.com/tock/tock/blob/master/doc/BluetoothLEStack.md) is part of [TockOS](https://github.com/tock/tock), a secure open source operating system for embedded devices which is completely written in Rust. Sadly, the Tock OS Bluetooth Stack is still quite minimal, which results in not being able to connect. This limits the capability of this stack to advertising and scanning.
+### tock Stack
+The [tock Bluetooth Stack](https://github.com/tock/tock/blob/master/doc/BluetoothLEStack.md) is part of [tock](https://github.com/tock/tock), a secure open source operating system for embedded devices which is completely written in Rust. Sadly, the Tock OS Bluetooth Stack is still quite minimal, which results in not being able to connect. This limits the capability of this stack to advertising and scanning.
 
 <!-- Javascript part to toggle the visibility of the columns -->
 <!-- Yes, iterating through the checkboxes would have been more beautiful -->
@@ -170,12 +170,12 @@ The [TockOS Bluetooth Stack](https://github.com/tock/tock/blob/master/doc/Blueto
     embassy.addEventListener("change", updateDisplay);
     const drogue = document.querySelector('#drogue');
     drogue.addEventListener("change", updateDisplay);
-    const tockos = document.querySelector('#tockos');
-    tockos.addEventListener("change", updateDisplay);
-    const riotos = document.querySelector('#riotos');
-    riotos.addEventListener("change", updateDisplay);
-    const zephyros = document.querySelector('#zephyros');
-    zephyros.addEventListener("change", updateDisplay);
+    const tock = document.querySelector('#tock');
+    tock.addEventListener("change", updateDisplay);
+    const riot = document.querySelector('#riot');
+    riot.addEventListener("change", updateDisplay);
+    const zephyr = document.querySelector('#zephyr');
+    zephyr.addEventListener("change", updateDisplay);
 
     function updateDisplay() {
         var em_link = document.getElementById('em_tab');
@@ -193,21 +193,21 @@ The [TockOS Bluetooth Stack](https://github.com/tock/tock/blob/master/doc/Blueto
         }
 
         var to_link = document.getElementById('to_tab');
-        if (!tockos.checked) {
+        if (!tock.checked) {
             to_link.style.visibility = 'collapse';
         } else {
             to_link.style.visibility = 'visible';
         }
 
         var ri_link = document.getElementById('ri_tab');
-        if (!riotos.checked) {
+        if (!riot.checked) {
             ri_link.style.visibility = 'collapse';
         } else {
             ri_link.style.visibility = 'visible';
         }
 
         var ze_link = document.getElementById('ze_tab');
-        if (!zephyros.checked) {
+        if (!zephyr.checked) {
             ze_link.style.visibility = 'collapse';
         } else {
             ze_link.style.visibility = 'visible';

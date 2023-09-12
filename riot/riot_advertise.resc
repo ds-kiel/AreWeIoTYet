@@ -1,0 +1,26 @@
+:name: NRF52840 - RIOT OS Advertise
+:description: This script runs a demonstration of RIOT OS BLE Advertising 
+
+using sysbus
+
+emulation CreateBLEMedium "wireless"
+include @NRF52840_UART_MODIFIED.cs
+
+mach create
+machine LoadPlatformDescription @nrf52840-riotos.repl
+connector Connect sysbus.radio wireless
+
+$bin?=@output/rust-nimble_advertiser.elf
+
+showAnalyzer uart0
+logLevel -1
+
+emulation SetGlobalQuantum "0.00001"
+emulation LogBLETraffic
+
+
+macro reset
+"""
+    sysbus LoadELF $bin
+"""
+runMacro $reset
