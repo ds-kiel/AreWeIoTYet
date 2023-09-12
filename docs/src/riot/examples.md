@@ -4,17 +4,17 @@ RIOT provides a few [examples](https://github.com/RIOT-OS/RIOT/tree/master/examp
 There are also a few [Rust examples](https://github.com/RIOT-OS/RIOT/tree/master/examples/rust-hello-world).
 
 RIOT's [system for using Rust](https://doc.riot-os.org/using-rust.html) is pretty decent but the [Wrapper Library](https://github.com/RIOT-OS/rust-riot-wrappers) is as of the writing of this still lacking in quite a lot of aspects, especially when it comes to BLE.
-This leads to us having to write wrapper code for the C interface our self by mirroring C structures and a lot of `unsafe` sections.
+This leads to us having to write wrapper code for the C interface ourselves by mirroring C structures and a lot of `unsafe` sections.
 
 ## BLE Advertising
 
 The [Rust BLE Advertising Example](https://github.com/Pusty/AreWeIoTYet/tree/main/riot/examples/rust-nimble_advertiser) uses Nimble to send advertisements.
 
-This is how it looks like in renode:
+This is what it looks like in renode:
 
 ![](advertise.png)
 
-And this is how the advertisement packets that are send are structured:
+And this is how the advertisement packets that are sent are structured:
 
 ![](packet.png)
 

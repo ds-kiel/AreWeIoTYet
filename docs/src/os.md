@@ -1,24 +1,13 @@
-# Operation Systems
+# Other Considered Operation Systems
 
-| OS        | Language | BLE Support | Rust Support | Renode Support |
-|-----------|----------|-------------|--------------|----------------|
-| [RIOT](riot)      | C        |     😄      |       🙂      |        😄      |
-| [tock](tock)      | Rust     |      😐     |       🙂      |        😄      |
-| [Embassy](embassy)   | Rust     |      😄     |      😄       |       ☹️       |
-| [DrogueIOT](drogueiot) | Rust     |      😄     |      😄       |      ☹️        |
-| [Zepyhr](zephyr)    | C        |     😄      |       ☹️      |       😄       |
-
-
-## Other Considered Operation Systems
-
-### FreeRTOS
+## FreeRTOS
 
 No official Rust support, neither [FreeRTOS-rust](https://github.com/lobaro/FreeRTOS-rust) or [freertos.rs](https://github.com/hashmismatch/freertos.rs) looked like they are in active development.
 
-### Apache Mynewt
+## Apache Mynewt
 
 While there is a [Rust tutorial](https://mynewt.apache.org/latest/tutorials/other/rust.html) there doesn't seem too much information on official bindings and using Rust otherwise.
 
-### Other + Rumble
+## Other + Rumble
 
 We also looked at using (Rust) RTOS without their own BLE stacks in combination with [Rumble](https://github.com/mwylde/rumble) but that project also does not look like it is in active development.

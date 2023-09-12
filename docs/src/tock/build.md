@@ -22,17 +22,17 @@ Note here that running `make setup` also builds a custom branch of `qemu` which 
 
 - `apt-get install libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev libgtk-3-dev` (ubuntu:22.04)
 
-After that our examples need to be copied into the `examples` folder and can be build with:
+After that, our examples need to be copied into the `examples` folder and can be built with:
 
 - `make nrf52840 EXAMPLE=ble_advertising`
 - `make nrf52840 EXAMPLE=ble_scanning`
     
-As `tock` seperates the kernel and modules, we also need to build the kernel separately:
+As `tock` separates the kernel and modules, we also need to build the kernel separately:
 
 - `cd libtock-rs/tock/boards/nordic/nrf52840dk && make all`
     
 
-After this we will have the following useful artifacts:
+After this, we will have the following useful artifacts:
 
 - `libtock-rs/tock/target/thumbv7em-none-eabi/release/nrf52840dk.bin` - `tock` for the `nrf52840dk`
 - `libtock-rs/target/thumbv7em-none-eabi/release/examples/ble_advertising.tab` - The Advertising Module
@@ -43,16 +43,16 @@ After this we will have the following useful artifacts:
 
 ## Build with Docker
 
-A `Dockerfile` is additionally provided that when ran will build all these artifacts [here](https://github.com/Pusty/AreWeIoTYet/tree/main/tock/output).
+A `Dockerfile` is additionally provided that when run will build all these artifacts [here](https://github.com/Pusty/AreWeIoTYet/tree/main/tock/output).
 
-By running `docker build --output=output --target=binaries .` The docker image will be build and the output artifacts will be extracted and put into a folder called `output`.
-Note here that the `ble_advertising.elf` / `ble_scanning.elf` are already merged with the kernel and can be directly used with`renode`.
+By running `docker build --output=output --target=binaries .` The docker image will be built and the output artifacts will be extracted and put into a folder called `output`.
+Note here that the `ble_advertising.elf` / `ble_scanning.elf` are already merged with the kernel and can be directly used with `renode`.
 
 ## Run on Device
 
 When wanting to run these examples on actual`nrf52840dk` boards we can follow the [guidelines](https://github.com/tock/tock/blob/master/doc/Getting_Started.md) of tock and [libtock-rs](https://github.com/tock/libtock-rs) which means to build the kernel with `make install` and the examples with `make flash-nrf52840 EXAMPLE=<example>` instead and have the board plugged in over USB.
 
-If we instead want to do this more manual after obtaining the artifacts as above or through `docker` we can instead the kernel with:
+If we instead want to do this more manually after obtaining the artifacts as above or through `docker` we can instead the kernel with:
 
 - `tockloader flash --address 0x0 --board nrf52840dk --jlink nrf52840dk.bin`
 
@@ -62,7 +62,7 @@ or
 - `tockloader install --board nrf52840dk --jlink ble_scanning`
 
 This will install the `.tab` files with the respective names on a connected board with `tock` flashed on.
-Depending on how the board is connected and the operation system you use some command line options [might need be changed](https://github.com/tock/tockloader).
+Depending on how the board is connected and the operation system you use some command line options [might need to be changed](https://github.com/tock/tockloader).
 Note that as of the writing of this, `tockloader` does not support Windows for flashing and installing `tock` and modules, see [here](../setup/hardware.html#working-in-wsl2) on how to use WSL2 for this instead.
 
 ## Run on Renode
@@ -114,5 +114,5 @@ nfcpin: Memory.ArrayMemory @ sysbus 0x1000120C
 ```
 
 This is because the startup of `tock` for the nrf boards [requires configuring these registers](https://github.com/tock/tock/blob/master/boards/nordic/nrf52_components/src/startup.rs#L41).
-If these registers are not writable then `renode` will be stuck in a reboot loop falling constantly to configure the device.
+If these registers are not writable then `renode` will be stuck in a reboot loop failing constantly to configure the device.
 

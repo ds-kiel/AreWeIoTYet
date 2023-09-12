@@ -2,7 +2,7 @@
 
 We were not able to get Embassy to work nicely on Renode.
 
-For documentation purpose we list the following problems for getting Embassy to work on Renode: 
+For documentation purposes, we list the following problems for getting Embassy to work on Renode: 
 
 Solved Problems:
 
@@ -17,24 +17,24 @@ Known Open Problems:
 
 Unknown Open Problems:
 
-- Program waits forever after sending advertisement once
+- The program waits forever after sending an advertisement once
 
 
 The following subsections go into the details of these.
 
 ## Booting with the SoftDevice [Solved]
 
-Embassy on the NRF52 is using Nordic Semiconductor's closed source [SoftDevice](https://infocenter.nordicsemi.com/topic/struct_nrf52/struct/nrf52_softdevices.html) for some features but for us most importantly Bluetooth.
+Embassy on the NRF52 is using Nordic Semiconductor's closed source [SoftDevice](https://infocenter.nordicsemi.com/topic/struct_nrf52/struct/nrf52_softdevices.html) for some features but most importantly Bluetooth.
 
 The first hurdle when building Embassy with the SoftDevice normally is how to configure and combine those two generally, as a lot of it depends on the exact version and configuration you are going to use.
 
-When downloading the SoftDevice we get a `.hex` file in the Intel HEX format, so as a preperation we convert that to a flat binary file:
+When downloading the SoftDevice we get a `.hex` file in the Intel HEX format, so as a preparation, we convert that to a flat binary file:
 
 ```
 objcopy --input-target=ihex --output-target=binary s140_nrf52_7.3.0_softdevice.hex s140_softdevice.bin
 ```
 
-Generally speaking what should work is loading the binary and matching SoftDevice like this:
+Generally speaking, what should work is loading the binary and matching SoftDevice like this:
 
 ```
 sysbus LoadELF $binary
@@ -49,7 +49,7 @@ To fix this we tell Renode that we want the Vector Table of the SoftDevice to be
 cpu VectorTableOffset 0
 ```
 
-But for some reason this already causes a boot loop and our program to never load.
+But for some reason, this already causes a boot loop and our program to never load.
 
 To cite the API docs included with the SoftDevice:
 ```
@@ -83,29 +83,29 @@ So by either setting `MBR_UICR_BOOTLOADER_ADDR` to `0x1000` or patching the Soft
 
 Starting with the problem we were able to diagnose:
 
-Enabling Bluetooth functionality with the SoftDevice requires temperature sensor peripheral, which is not implemented in Renode.
+Enabling Bluetooth functionality with the SoftDevice requires a temperature sensor peripheral, which is not implemented in Renode.
 
-From the API documentation this seems to be the case because of some problems with rssi sampling ( [153](https://infocenter.nordicsemi.com/index.jsp?topic=%2Ferrata_nRF52840_EngC%2FERR%2FnRF52840%2FEngineeringC%2Flatest%2Fanomaly_840_153.html) , [225](https://infocenter.nordicsemi.com/index.jsp?topic=%2Ferrata_nRF52833_Rev2%2FERR%2FnRF52833%2FRev2%2Flatest%2Fanomaly_833_225.html) ):
+From the API documentation, this seems to be the case because of some problems with rssi sampling ( [153](https://infocenter.nordicsemi.com/index.jsp?topic=%2Ferrata_nRF52840_EngC%2FERR%2FnRF52840%2FEngineeringC%2Flatest%2Fanomaly_840_153.html) , [225](https://infocenter.nordicsemi.com/index.jsp?topic=%2Ferrata_nRF52833_Rev2%2FERR%2FnRF52833%2FRev2%2Flatest%2Fanomaly_833_225.html) ):
 
 ```
 ERRATA-153 and ERRATA-225 require the rssi sample to be compensated based on a temperature measurement.
 ```
 
-By providing dummy sensor values we were able to get further into the Bluetooth Stack and making the examples send a single burst of advertisements.
-After that the program seemed to get stuck in the `embassy_executor::arch::thread::Executor::run` at a `wfe` instruction seemingly waiting for a timer interrupt that never happens.
+By providing dummy sensor values we were able to get further into the Bluetooth Stack and make the examples send a single burst of advertisements.
+After that, the program seemed to get stuck in the `embassy_executor::arch::thread::Executor::run` at a `wfe` instruction seemingly waiting for a timer interrupt that never happens.
 
 We were not able to further figure out where the exact problem lies.
 
 ## General Problems
 
 A general problem with combining Embassy and Renode is the method Embassy uses for debug output.
-Compared to other frameworks that treat serial output as the standard way of communication, Embassy treats serial like any other peripheral and as no shortcuts for using it.
+Compared to other frameworks that treat serial output as the standard way of communication, Embassy treats serial like any other peripheral and has no shortcuts for using it.
 This is rather good when working with the SoftDevice that has some caveats with regards to Interrupt priority and how Interrupts can be used after the SoftDevice has been initialized.
 
 Even better Embassy on the NRF makes use of [SEGGER's Real Time Transfer technology](https://wiki.segger.com/RTT) through the programmer on the board to deliver general and debug information or even warnings and crashes.
-The message transfer happens using the [defmt](https://github.com/knurling-rs/defmt) library which encodes the information efficiently so e.g. fixed strings can be referenced by indexed instead of being repeatedly being send over the wire.
+The message transfer happens using the [defmt](https://github.com/knurling-rs/defmt) library which encodes the information efficiently so e.g. fixed strings can be referenced by index instead of being repeatedly sent over the wire.
 
 With Renode the problem is that that RTT as a communication method is not implemented and for the output to be actually useful decoding for `defmt` needs to be implemented additionally.
 
-Without this working with Embassy and debugging it is extremely difficult given you are basically working blind and as even the [Embassy NRF-Softdevice](https://github.com/embassy-rs/nrf-softdevice/tree/master) itself assumes you have this output for configuring the memory for the SoftDevice.
+Without this working with Embassy and debugging it is extremely difficult given you are basically working blind and even the [Embassy NRF-Softdevice](https://github.com/embassy-rs/nrf-softdevice/tree/master) itself assumes you have this output for configuring the memory for the SoftDevice.
 

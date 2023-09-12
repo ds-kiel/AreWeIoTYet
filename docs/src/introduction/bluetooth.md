@@ -1,5 +1,5 @@
 # Bluetooth Stack Comparison
-We compare five operating systems and their bluetooth stacks on eleven characteristics. The intention is to enable a feeling on what the different operating systems are capable of. Afterwards, we give a short summary on the different stacks used.
+We compare five operating systems and their Bluetooth stacks on eleven characteristics. The intention is to enable a feeling of what the different operating systems are capable of. Afterward, we give a short summary of the different stacks used.
 
 <!-- Checkboxes to toggle the visibility of the columns of the table -->
 <fieldset id="Checkboxes">
@@ -144,20 +144,20 @@ We compare five operating systems and their bluetooth stacks on eleven character
 </tr>
 </table>  
 
-Some of the operating systems use the same underlying bluetooth stack. Thus we only have four different bluetooth stacks:
+Some of the operating systems use the same underlying Bluetooth stack. Thus we only have four different Bluetooth stacks:
 1. SoftDevice
 2. NimBLE
 3. Zephyr Stack
 4. tock Stack
 
 ### SoftDevice
-The [SoftDevice](https://infocenter.nordicsemi.com/index.jsp?topic=%2Fsds_s140%2FSDS%2Fs1xx%2Fble_protocol_stack%2Fble_protocol_stack.html) includes a BLE protocols stack which is compliant to Bluetooth 5.1 (Host & Controller). It is built and provided by Nordic Semiconductor, so the  producer of the nRF52840 DK board we targeted. Thus, it provides the full support those boards are capable of. Sadly, it is not Open Source and written in C. So the usage of this stack makes it impossible to build an application purely based on Rust. But, it clearly enables the best usage of the hardware.
+The [SoftDevice](https://infocenter.nordicsemi.com/index.jsp?topic=%2Fsds_s140%2FSDS%2Fs1xx%2Fble_protocol_stack%2Fble_protocol_stack.html) includes a BLE protocol stack that is compliant with Bluetooth 5.1 (Host & Controller). It is built and provided by Nordic Semiconductor, the  producer of the nRF52840 DK board we targeted. Thus, it provides the full support those boards are capable of. Sadly, it is not Open Source and written in C. So the usage of this stack makes it impossible to build an application purely based on Rust. But, it clearly enables the best usage of the hardware.
 
 ### NimBLE
-[Apache NimBLE](https://github.com/apache/mynewt-nimble) is a Bluetooth 5.4 compliant bluetooth stack. It is part of the apache Mynewt project which "is an open source operating system for tiny embedded devices" ([Apache Mynewt](https://github.com/apache/mynewt-core)). NimBLE approaches to replace the SoftDevice and thus supports multiple of Nordics chipsets. It is also written in C but it is open source which might make it favorable over Nordics SoftDevice.
+[Apache NimBLE](https://github.com/apache/mynewt-nimble) is a Bluetooth 5.4 compliant Bluetooth stack. It is part of the Apache Mynewt project which "is an open source operating system for tiny embedded devices" ([Apache Mynewt](https://github.com/apache/mynewt-core)). NimBLE approaches to replace the SoftDevice and thus supports multiple Nordics chipsets. It is also written in C but it is open source which might make it favorable over Nordics SoftDevice.
 
 ### Zephyr Stack
-The [Zephyrs Bluetooth Stack](https://docs.zephyrproject.org/latest/connectivity/bluetooth/overview.html) is Bluetooth 5.3 compliant. It is part of the zephyrproject or the Zephyr RTOS which is open source and programmed in C. While the stack overall is fine, bringing it together with Rust is a hussle as described later in [Zephyr](../zephyr/README.md).
+The [Zephyrs Bluetooth Stack](https://docs.zephyrproject.org/latest/connectivity/bluetooth/overview.html) is Bluetooth 5.3 compliant. It is part of the zephyrproject or the Zephyr RTOS which is open source and programmed in C. While the stack overall is fine, bringing it together with Rust is a hassle as described later in [Zephyr](../zephyr/README.md).
 
 ### tock Stack
 The [tock Bluetooth Stack](https://github.com/tock/tock/blob/master/doc/BluetoothLEStack.md) is part of [tock](https://github.com/tock/tock), a secure open source operating system for embedded devices which is completely written in Rust. Sadly, the Tock OS Bluetooth Stack is still quite minimal, which results in not being able to connect. This limits the capability of this stack to advertising and scanning.

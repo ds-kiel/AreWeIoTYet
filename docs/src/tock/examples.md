@@ -1,8 +1,8 @@
 # Examples
 
-The Tock C library provides a few Bluetooth Low Energy [Examples](https://github.com/tock/libtock-c/blob/master/examples/) where as the [Rust Library](https://github.com/tock/libtock-rs/tree/master/examples) does not so we have translated two of these examples to Rust.
+The Tock C library provides a few Bluetooth Low Energy [Examples](https://github.com/tock/libtock-c/blob/master/examples/) whereas the [Rust Library](https://github.com/tock/libtock-rs/tree/master/examples) does not so we have translated two of these examples to Rust.
 One problem here is that the C library actually provides [proper support](https://github.com/tock/libtock-c/blob/master/libtock/ble.c) for interacting with the BLE Advertising Driver but the Rust library (currently) doesn't.
-This means we had to [port these parts](https://github.com/Pusty/AreWeIoTYet/blob/main/tock/examples/ble.rs) and have to interact directly through the abstraction of the syscall interface with the driver our self.
+This means we had to [port these parts](https://github.com/Pusty/AreWeIoTYet/blob/main/tock/examples/ble.rs) and have to interact directly through the abstraction of the syscall interface with the driver ourselves.
 
 ## BLE Advertising
 
@@ -13,7 +13,7 @@ This is how the UART Console looks in renode:
 
 ![](advertise.png)
 
-And this is how the advertisement packets that are send are structured (they are send on Channel 37, 38 and 39):
+And this is how the advertisement packets that are sent are structured (they are sent on Channel 37, 38, and 39):
 
 ![](packet.png)
 

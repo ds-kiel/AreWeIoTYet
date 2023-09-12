@@ -56,9 +56,9 @@ The build artifacts we care about in the end are:
 
 ## Build with Docker
 
-A `Dockerfile` is additionally provided that when ran will build all these artifacts [here](https://github.com/Pusty/AreWeIoTYet/tree/main/riot/output).
+A `Dockerfile` is additionally provided that when run will build all these artifacts [here](https://github.com/Pusty/AreWeIoTYet/tree/main/riot/output).
 
-By running `docker build --output=output --target=binaries .` The docker image will be build and the output artifacts will be extracted and put into a folder called `output`.
+By running `docker build --output=output --target=binaries .` The docker image will be built and the output artifacts will be extracted and put into a folder called `output`.
 
 ## Run on Device
 
@@ -96,6 +96,6 @@ This starts both the advertising and scanning examples.
 
 ### Notes on renode:
 
-`RIOT`s wiki has a [small section](https://doc.riot-os.org/emulators.html) on how it already supports `renode` as an emulator, but when trying to emulate device specific functionality like BLE we still have a problem for the NRF boards.
+`RIOT`s wiki has a [small section](https://doc.riot-os.org/emulators.html) on how it already supports `renode` as an emulator, but when trying to emulate device-specific functionality like BLE we still have a problem for the NRF boards.
 Specifically the way `RIOT` implemented UART for the `nrf52840` by relying on the `Shortcut` functionality that is not implemented (as of yet) in `renode`'s `nrf52840` UART driver.
 This means we need to load a patched [`NRF52840_UART_MODIFIED.cs`](https://github.com/Pusty/AreWeIoTYet/blob/main/riot/NRF52840_UART_MODIFIED.cs) driver and use it instead. 
