@@ -6,6 +6,7 @@
     - [Bluetooth Stack Comparison](introduction/bluetooth.md)
     - [Hardware](introduction/hardware.md)
     - [Renode](introduction/renode.md)
+    - [Quickstart](introduction/quickstart.md)
 - [RIOT](riot/README.md)
     - [Examples](riot/examples.md)
     - [Build & Run Instructions](riot/build.md) 
