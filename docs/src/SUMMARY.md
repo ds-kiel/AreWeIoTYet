@@ -4,9 +4,8 @@
 
 - [Introduction](introduction.md)
     - [Bluetooth Stack Comparison](introduction/bluetooth.md)
-- [Setup](setup.md)
-    - [Hardware](setup/hardware.md)
-    - [Renode](setup/renode.md)
+    - [Hardware](introduction/hardware.md)
+    - [Renode](introduction/renode.md)
 - [Operation Systems](os.md)
     - [RIOT](riot/README.md)
         - [Examples](riot/examples.md)
