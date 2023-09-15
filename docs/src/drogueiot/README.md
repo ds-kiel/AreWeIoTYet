@@ -24,7 +24,7 @@ We were not successful in getting Embassy on Renode to stably work with the Blue
 
 It is necessary to open multiple terminal windows to run the example.
 
-### Terminal Fenster 1
+### Terminal Window 1
 1. ```git clone https://github.com/drogue-iot/drogue-device.git``` 
 2. ```cd drogue-device```
 3. On Ubuntu 22.04: 
@@ -34,12 +34,12 @@ It is necessary to open multiple terminal windows to run the example.
 4. ```sudo service bluetooth stop```
 5. ```sudo /usr/lib/bluetooth/bluetooth-meshd -nd --debug```
 
-### Terminal Fenster 2
+### Terminal Window 2
 6. ```mesh-cfgclient```
 7. If it says config_db.json not found:  
 ```[mesh-cfgclient]# create```
 
-### Terminal Fenster 3
+### Terminal Window 3
 8. ```cd <drogue-device-git>/examples/nrf52/nrf52840-dk/bt-mesh```
 9. Try: ```DEFMT_LOG=debug cargo run --release```
     - I am getting the error message ```rust-lld error: undefined symbol: _defmt_acquire```
@@ -69,7 +69,7 @@ It is necessary to open multiple terminal windows to run the example.
 12. Try ```cargo run --release```
     Outputs for me: ```(HOST) INFO success!```
 
-### Back to Terminal Fenster 2 (starting to play)
+### Back to Terminal Window 2 (starting to play)
 13. ```[mesh-cfgclient]# discover-unprovisioned on```  
     Outputs for me: 
     ```
