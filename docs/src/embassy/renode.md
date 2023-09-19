@@ -1,30 +1,29 @@
 # Remarks regarding Renode
 
-We were not able to get Embassy to work nicely on Renode.
+We were not able to get Embassy BLE functionality to work on Renode.
 
 For documentation purposes, we list the following problems for getting Embassy to work on Renode: 
 
 Solved Problems:
 
-- Configuring MBR to boot correctly
-- Sending advertisement packets once
+- Configuring MBR to boot correctly [[1]](renode.html#booting-with-the-softdevice-solved)
+- Sending advertisement packets once [[2]](renode.html#sending-an-advertisement-once)
 
 Known Open Problems:
 
-- Temperature Sensor Peripheral needed
-- RTT Peripheral needed
-- RTT decoding of defmt needed
+- Temperature Sensor Peripheral needed [[3]](renode.html#using-bluetooth-with-the-softdevice)
+- Decoding of [defmt](https://github.com/knurling-rs/defmt) over RTT needed [[4]](renode.html#general-problems)
 
 Unknown Open Problems:
 
-- The program waits forever after sending an advertisement once
+- The program waits forever after sending an advertisement once [[2]](renode.html#sending-an-advertisement-once)
 
 
 The following subsections go into the details of these.
 
 ## Booting with the SoftDevice [Solved]
 
-Embassy on the NRF52 is using Nordic Semiconductor's closed source [SoftDevice](https://infocenter.nordicsemi.com/topic/struct_nrf52/struct/nrf52_softdevices.html) for some features but most importantly Bluetooth.
+Embassy on ony nRF52 chip (so including the nRF52840) is using Nordic Semiconductor's closed source [SoftDevice](https://infocenter.nordicsemi.com/topic/struct_nrf52/struct/nrf52_softdevices.html) for some features but most importantly Bluetooth.
 
 The first hurdle when building Embassy with the SoftDevice normally is how to configure and combine those two generally, as a lot of it depends on the exact version and configuration you are going to use.
 
@@ -34,7 +33,7 @@ When downloading the SoftDevice we get a `.hex` file in the Intel HEX format, so
 objcopy --input-target=ihex --output-target=binary s140_nrf52_7.3.0_softdevice.hex s140_softdevice.bin
 ```
 
-Generally speaking, what should work is loading the binary and matching SoftDevice like this:
+Generally speaking, what should work is loading the binary and [matching SoftDevice](https://infocenter.nordicsemi.com/index.jsp?topic=%2Fcomp_matrix_nrf52840%2FCOMP%2Fnrf52840%2Fnrf52840_comp_matrix.html) like this:
 
 ```
 sysbus LoadELF $binary
@@ -81,8 +80,6 @@ So by either setting `MBR_UICR_BOOTLOADER_ADDR` to `0x1000` or patching the Soft
 
 ## Using Bluetooth with the SoftDevice
 
-Starting with the problem we were able to diagnose:
-
 Enabling Bluetooth functionality with the SoftDevice requires a temperature sensor peripheral, which is not implemented in Renode.
 
 From the API documentation, this seems to be the case because of some problems with rssi sampling ( [153](https://infocenter.nordicsemi.com/index.jsp?topic=%2Ferrata_nRF52840_EngC%2FERR%2FnRF52840%2FEngineeringC%2Flatest%2Fanomaly_840_153.html) , [225](https://infocenter.nordicsemi.com/index.jsp?topic=%2Ferrata_nRF52833_Rev2%2FERR%2FnRF52833%2FRev2%2Flatest%2Fanomaly_833_225.html) ):
@@ -92,7 +89,7 @@ ERRATA-153 and ERRATA-225 require the rssi sample to be compensated based on a t
 ```
 
 By providing dummy sensor values we were able to get further into the Bluetooth Stack and make the examples send a single burst of advertisements.
-After that, the program seemed to get stuck in the `embassy_executor::arch::thread::Executor::run` at a `wfe` instruction seemingly waiting for a timer interrupt that never happens.
+After that, the program seemed to get stuck in the `embassy_executor::arch::thread::Executor::run` at a [`wfe`](https://developer.arm.com/documentation/dui0473/m/arm-and-thumb-instructions/wfe) instruction seemingly waiting for a timer interrupt that never happens.
 
 We were not able to further figure out where the exact problem lies.
 
@@ -109,3 +106,9 @@ With Renode the problem is that that RTT as a communication method is not implem
 
 Without this working with Embassy and debugging it is extremely difficult given you are basically working blind and even the [Embassy NRF-Softdevice](https://github.com/embassy-rs/nrf-softdevice/tree/master) itself assumes you have this output for configuring the memory for the SoftDevice.
 
+
+## Sending an Advertisement Once
+
+We are able to get the [advertiser example](https://github.com/embassy-rs/nrf-softdevice/blob/master/examples/src/bin/ble_advertise.rs) running in Renode but after sending the following packets it freezes in the before mentioned `embassy_executor::arch::thread::Executor::run` function.
+
+![](bleonce.png)

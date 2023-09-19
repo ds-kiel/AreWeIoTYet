@@ -1,4 +1,4 @@
-# Built& Run Instruction for Board
+# Build & Run Instruction for Board
 
 ### Prerequistits
 For Ubuntu 22.04 make sure that the following are installed:

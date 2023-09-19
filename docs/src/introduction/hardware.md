@@ -1,8 +1,11 @@
 # Hardware
 
-We selected working with the [nRF52840 DK](https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dk) because it is a wide-spread readily available BLE development board and supported in all of the mature frameworks we looked over.
+![](hardware.jpg)
+
+We work with the [nRF52840 DK](https://www.nordicsemi.com/Products/Development-hardware/nrf52840-dk) a development board for the [nRF52840 SoC](https://www.nordicsemi.com/products/nrf52840) which is a wide-spread readily available BLE capable chip that is supported in all of the mature frameworks we looked over.
+In particular all evaluated frameworks specifically support the nRF52840 DK board and pin layout specifically as well.
 With a few exceptions the nRF52 row of chips was also supported in the newer frameworks which didn't end up in this list for various reasons (see [here](../os) for a list of them).
-Renode, the simulation framework we wanted to use for testing also has nRF52840 support and BLE examples with Zephyr.
+[Renode](renode), the simulation framework we wanted to use for testing also has nRF52840 support and BLE examples with Zephyr.
 
 ## Working in WSL2
 

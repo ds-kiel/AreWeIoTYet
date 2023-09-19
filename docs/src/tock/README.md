@@ -2,7 +2,7 @@
 
 Tock is an embedded operating system written in Rust.
 It is designed to be able to run multiple concurrent, mutually distrustful applications on embedded platforms.
-For us most notably it explicitly supports the `nrf52840dk` board and limited BLE.
+For us most notably it explicitly supports the nRF52840 DK board and minimal BLE.
 
 ## [😐] Bluetooth Status
 

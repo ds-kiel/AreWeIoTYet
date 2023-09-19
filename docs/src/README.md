@@ -7,7 +7,7 @@ With a focus on Bluetooth Low Energy (BLE), pure Rust programming, and simulatio
 
 ## Status
 
-| OS        | Language | BLE Support | Rust Support | Renode Support |
+| OS        | Language | BLE Support | Application Rust Support | Renode Support |
 |-----------|----------|-------------|--------------|----------------|
 | [RIOT](riot)      | C        |     😄      |       🙂      |        😄      |
 | [tock](tock)      | Rust     |      😐     |       🙂      |        😄      |
@@ -19,6 +19,7 @@ With a focus on Bluetooth Low Energy (BLE), pure Rust programming, and simulatio
 
 - BLE and pure Rust programming are achievable using [Embassy](embassy) and [DrogueIOT](drogueiot) but simulation support is missing.
 - BLE and simulation support using [Renode](renode) while programming mainly in Rust is achievable with [RIOT](riot) but requires proficiency in C.
+- Pure Rust programming and simulation support using [Renode](renode) work with [tock](tock) but only provide very limited BLE support.
 
 ## Open Tasks
 

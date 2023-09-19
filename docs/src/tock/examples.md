@@ -13,7 +13,7 @@ This is how the UART Console looks in renode:
 
 ![](advertise.png)
 
-And this is how the advertisement packets that are sent are structured (they are sent on Channel 37, 38, and 39):
+And this is how the advertisement packets that are sent are structured (they are sent on the three primary advertising channels 37, 38, and 39):
 
 ![](packet.png)
 

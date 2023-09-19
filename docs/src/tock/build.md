@@ -52,7 +52,7 @@ Note here that the `ble_advertising.elf` / `ble_scanning.elf` are already merged
 
 When wanting to run these examples on actual`nrf52840dk` boards we can follow the [guidelines](https://github.com/tock/tock/blob/master/doc/Getting_Started.md) of tock and [libtock-rs](https://github.com/tock/libtock-rs) which means to build the kernel with `make install` and the examples with `make flash-nrf52840 EXAMPLE=<example>` instead and have the board plugged in over USB.
 
-If we instead want to do this more manually after obtaining the artifacts as above or through `docker` we can instead the kernel with:
+If we instead want to do this more manually after obtaining the artifacts as above or through `docker` we can instead install the kernel and examples with:
 
 - `tockloader flash --address 0x0 --board nrf52840dk --jlink nrf52840dk.bin`
 
@@ -62,7 +62,7 @@ or
 - `tockloader install --board nrf52840dk --jlink ble_scanning`
 
 This will install the `.tab` files with the respective names on a connected board with `tock` flashed on.
-Depending on how the board is connected and the operation system you use some command line options [might need to be changed](https://github.com/tock/tockloader).
+Depending on how the board is connected and the operation system used some command line options [might need to be changed](https://github.com/tock/tockloader).
 Note that as of the writing of this, `tockloader` does not support Windows for flashing and installing `tock` and modules, see [here](../setup/hardware.html#working-in-wsl2) on how to use WSL2 for this instead.
 
 ## Run on Renode
@@ -72,7 +72,7 @@ To run the examples with `tock` in `renode` and preserve all our debug symbols w
 - `arm-none-eabi-objcopy --update-section .apps=ble_advertising.tbf nrf52840dk.elf ble_advertising.elf`
 - `arm-none-eabi-objcopy --update-section .apps=ble_scanning.tbf nrf52840dk.elf ble_passive_scanning.elf`
 
-The merged ELF files we have can then be directly loaded normally in `renode`.
+The merged ELF files can then be directly loaded in `renode`.
 
 The examples provide two `renode` scenarios to play around with: `tock_advertise` and `tock_demo`.
 

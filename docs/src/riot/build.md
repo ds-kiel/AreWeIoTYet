@@ -31,7 +31,7 @@ apt-get install \
 cargo install c2rust --git https://github.com/immunant/c2rust
 ```
 
-Building `RIOT` itself only requires a few build tools
+[Building `RIOT`](https://doc.riot-os.org/index.html#the-quickest-start) itself only requires a few build tools
 
 - `apt-get install gcc-arm-none-eabi make gcc-multilib libstdc++-arm-none-eabi-newlib openocd gdb-multiarch doxygen wget unzip python3-serial` (ubuntu:22.04)
 
@@ -96,6 +96,6 @@ This starts both the advertising and scanning examples.
 
 ### Notes on renode:
 
-`RIOT`s wiki has a [small section](https://doc.riot-os.org/emulators.html) on how it already supports `renode` as an emulator, but when trying to emulate device-specific functionality like BLE we still have a problem for the NRF boards.
-Specifically the way `RIOT` implemented UART for the `nrf52840` by relying on the `Shortcut` functionality that is not implemented (as of yet) in `renode`'s `nrf52840` UART driver.
+The wiki of RIOT has a [small section](https://doc.riot-os.org/emulators.html) on how it already supports Renode as an emulator, but when trying to emulate device-specific functionality like BLE we still have a problem for the NRF boards.
+Specifically the way RIOT implemented UART for the nRF52840 by relying on the `Shortcut` functionality that is not implemented (as of yet) in Renode's nRF52840 UART driver.
 This means we need to load a patched [`NRF52840_UART_MODIFIED.cs`](https://github.com/Pusty/AreWeIoTYet/blob/main/riot/NRF52840_UART_MODIFIED.cs) driver and use it instead. 

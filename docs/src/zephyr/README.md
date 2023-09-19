@@ -24,7 +24,7 @@ Our experiments with [tylerwhall/zephyr-rust](https://github.com/tylerwhall/zeph
 
 ![](sample.png)
 
-The crash is according to their README intended. For the serial output to show in Renode the `repl` for the `nrf52840` needs to be modified so that easyDMA is off for the UART ports:
+The crash is according to their README intended. For the serial output to show in Renode the `repl` for the [`nrf52840`](https://github.com/renode/renode/blob/master/platforms/cpus/nrf52840.repl) needs to be modified so that easyDMA is off for the UART ports:
 
 ```
 uart0: UART.NRF52840_UART @ sysbus 0x40002000

@@ -5,7 +5,7 @@ Through it, we can deterministically simulate scenarios and debug them before or
 This generally makes it faster and easier to develop and verify behavior.
 Compared to directly emulating the processor and testing using that (e.g. directly using [qemu](https://www.qemu.org/)) Renode has abstraction for specific board features and peripherals and has a plugin system to add components or modify their behavior.
 
-For general information, the [Renode Documentation](https://renode.readthedocs.io/en/latest/) is very helpful, but for a starting point a bit confusing.
+For general information, the [Renode Documentation](https://renode.readthedocs.io/en/latest/) is very helpful, but as a starting point a bit confusing.
 For reference on how peripherals are implemented the [Source Code](https://github.com/renode/renode-infrastructure/tree/master/src/Emulator/Peripherals/Peripherals) provides a good reference.
 
 ## Installation
@@ -13,7 +13,7 @@ For reference on how peripherals are implemented the [Source Code](https://githu
 To install Renode you just need to download the appropriate [release](https://github.com/renode/renode/releases/latest) for your operation system and install it.
 For Windows this is the `.msi` installer, for macOS the `.dmg` disk image, for Debian/Ubuntu this is the `.deb` software package.
 
-After installation, you might want to make sure that the installed programs `bin` folder is part of your PATH variable so you can access the `Renode` binary everywhere.
+After installation, you might want to make sure that the installed program's `bin` folder is part of your PATH variable so you can access the `Renode` binary everywhere.
 
 Optionally install [Wireshark](https://www.wireshark.org/download.html) for logging Bluetooth Low Energy Traffic.
 

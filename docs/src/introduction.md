@@ -1,4 +1,5 @@
 # Introduction
+
 ## Motivation
 There is an ongoing demand from developers to use Rust as an alternative to C as it is an interesting and promising language with a lot of active development and research. As a promising alternative to C, it would also make embedded and IoT development easily accessible. Rust is a programming language to build memory-safe, reliable, and stable software without race-conditions which is great for IoT applications. Thus, we want to check the state of IoT development using Rust. So, we answer the question "**Are We IoT Yet?**". Therefore, we used two subquestions to be answered on our way:
 1. Is it possible to write maintainable IoT devices in Rust?

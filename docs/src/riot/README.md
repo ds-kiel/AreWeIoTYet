@@ -6,8 +6,8 @@ For us most notably it explicitly supports the `nrf52840dk` board and BLE throug
 
 ## [😄] Bluetooth Status
 
-NimBLE is fully compliant with the Bluetooth 5 specifications with support for Bluetooth Mesh.
-Also notably there exists [official certification](https://cwiki.apache.org/confluence/display/MYNEWT/RN-NimBLE-1.1.0).
+NimBLE is fully compliant with the Bluetooth 5.4 specifications with support for Bluetooth Mesh.
+Also notably there exists [official certification](https://cwiki.apache.org/confluence/display/MYNEWT/RN-NimBLE-1.1.0) for the version 1.1.0 of NimBLE that is Bluetooth 5.0 compliant.
 
 ## [🙂] Rust Status
 
