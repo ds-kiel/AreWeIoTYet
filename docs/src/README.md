@@ -12,7 +12,7 @@ With a focus on Bluetooth Low Energy (BLE), pure Rust programming, and simulatio
 | [RIOT](riot)      | C        |     😄      |       🙂      |        😄      |
 | [tock](tock)      | Rust     |      😐     |       🙂      |        😄      |
 | [Embassy](embassy)   | Rust     |      😄     |      😄       |       ☹️       |
-| [DrogueIOT](drogueiot) | Rust     |      😄     |      😄       |      ☹️        |
+| [Drogue IoT](drogueiot) | Rust     |      😄     |      😄       |      ☹️        |
 | [Zephyr](zephyr)    | C        |     😄      |       ☹️      |       😄       |
 
 ## Trade-offs 
