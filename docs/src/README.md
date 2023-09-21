@@ -3,7 +3,7 @@
 _The state of the Internet of Things in Rust._
 
 
-With a focus on Bluetooth Low Energy (BLE), pure Rust programming, and simulation support, we are **not** IoT yet.
+With a focus on Bluetooth Low Energy (BLE), pure Rust programming, and simulation support on edge-devices, we are **not** IoT yet.
 
 ## Status
 
