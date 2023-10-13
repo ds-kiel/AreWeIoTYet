@@ -43,7 +43,7 @@ After this, we will have the following useful artifacts:
 
 ## Build with Docker
 
-A `Dockerfile` is additionally provided that when run will build all these artifacts [here](https://github.com/Pusty/AreWeIoTYet/tree/main/tock/output).
+A `Dockerfile` is additionally provided that when run will build all these artifacts [here](https://github.com/ds-kiel/AreWeIoTYet/tree/main/tock/output).
 
 By running `docker build --output=output --target=binaries .` The docker image will be built and the output artifacts will be extracted and put into a folder called `output`.
 Note here that the `ble_advertising.elf` / `ble_scanning.elf` are already merged with the kernel and can be directly used with `renode`.
@@ -98,7 +98,7 @@ This starts both the advertising and scanning examples.
 
 ### Notes on renode:
 
-The modified [`nrf52840-tock.repl`](https://github.com/Pusty/AreWeIoTYet/blob/main/tock/nrf52840-tock.repl) configuration is needed to run `tock` modules in `renode`.
+The modified [`nrf52840-tock.repl`](https://github.com/ds-kiel/AreWeIoTYet/blob/main/tock/nrf52840-tock.repl) configuration is needed to run `tock` modules in `renode`.
 
 The most notable change is making the following areas of memory writable:
 

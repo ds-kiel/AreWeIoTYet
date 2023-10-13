@@ -1,13 +1,13 @@
 # Quickstart Guide
 
-We provide examples, Dockerfiles, and Renode scenario files for [tock](../tock) and [RIOT](../riot) in the [repository](https://github.com/Pusty/AreWeIoTYet).
+We provide examples, Dockerfiles, and Renode scenario files for [tock](../tock) and [RIOT](../riot) in the [repository](https://github.com/ds-kiel/AreWeIoTYet).
 These files act both as a demonstration of how Rust development for these frameworks looks like and as an entry-point to trying it out.
 
 ## Setup
 
 To build the examples only [Docker](https://docs.docker.com/engine/install/) needs to be installed.
 
-- Clone the repository: `git clone https://github.com/Pusty/AreWeIoTYet`
+- Clone the repository: `git clone https://github.com/ds-kiel/AreWeIoTYet`
 - Build tock: `cd tock;docker build --output=output --target=binaries .;cd ..`
 - Build RIOT: `cd riot;docker build --output=output --target=binaries .;cd ..`
 

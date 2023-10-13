@@ -27,7 +27,7 @@ The `Renode/scripts` folder contains a collection of different simulations to tr
 
 For our specific use case where we already decided on the nRF52840 DK board and know we want to either run single-node or multi-node Bluetooth Low Energy simulations, building our scenario is fairly simple:
 
-Here is a fully commented version of the [tock BLE advertise example](https://github.com/Pusty/AreWeIoTYet/blob/main/tock/tock_advertise.resc), which is oriented on the official [BLE Tutorial](https://renode.readthedocs.io/en/latest/tutorials/ble-simulation.html#bluetooth-low-energy-simulation-in-renode):
+Here is a fully commented version of the [tock BLE advertise example](https://github.com/ds-kiel/AreWeIoTYet/blob/main/tock/tock_advertise.resc), which is oriented on the official [BLE Tutorial](https://renode.readthedocs.io/en/latest/tutorials/ble-simulation.html#bluetooth-low-energy-simulation-in-renode):
 
 ```
 # The system bus is the core peripheral that is always defined
@@ -82,7 +82,7 @@ This can be done in one command from the command line as well as `renode -e "inc
 
 ## Running multi-node simulations
 
-Here is a fully commented version of the [tock BLE scanning example](https://github.com/Pusty/AreWeIoTYet/blob/main/tock/tockos_demo.resc):
+Here is a fully commented version of the [tock BLE scanning example](https://github.com/ds-kiel/AreWeIoTYet/blob/main/tock/tockos_demo.resc):
 
 ```
 # The system bus is the core peripheral that is always defined
@@ -167,9 +167,9 @@ In the reset macro we need to add the commands to load the appropriate programs 
 
 For both [tock](../tock) and [RIOT](../riot), we ran into issues where the stock CPU configuration for the nRF52840 was not enough to properly simulate programs.
 For tock, this meant [adding additional registers](../tock/build.html#notes-on-renode) which is possible by just modifying the platform description and adding them.
-See the [tock scenarios](https://github.com/Pusty/AreWeIoTYet/blob/main/tock/tock_demo.resc) as an example of this.
+See the [tock scenarios](https://github.com/ds-kiel/AreWeIoTYet/blob/main/tock/tock_demo.resc) as an example of this.
 
 For RIOT, the problem was the underlying [UART implementation](../riot/build.html#notes-on-renode) for the nRF52840, but this also is not a problem because Renode lets you load in your own peripherals as C# files.
 Then at the start of your scenario file you load these custom C# peripherals in just like a scenario script with `include @NRF52840_UART_MODIFIED.cs` which you can then reference in e.g. your platform description file.
-See the [RIOT scenarios](https://github.com/Pusty/AreWeIoTYet/blob/main/riot/riot_advertise.resc) as an example of this.
+See the [RIOT scenarios](https://github.com/ds-kiel/AreWeIoTYet/blob/main/riot/riot_advertise.resc) as an example of this.
 

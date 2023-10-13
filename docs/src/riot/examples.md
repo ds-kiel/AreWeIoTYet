@@ -8,7 +8,7 @@ This leads to us having to write wrapper code for the C interface ourselves by m
 
 ## BLE Advertising
 
-The [Rust BLE Advertising Example](https://github.com/Pusty/AreWeIoTYet/tree/main/riot/examples/rust-nimble_advertiser) uses Nimble to send advertisements.
+The [Rust BLE Advertising Example](https://github.com/ds-kiel/AreWeIoTYet/tree/main/riot/examples/rust-nimble_advertiser) uses Nimble to send advertisements.
 
 This is what it looks like in renode:
 
@@ -20,7 +20,7 @@ And this is how the advertisement packets that are sent are structured:
 
 ## BLE Scanning
 
-The [Rust BLE Scanning Example](https://github.com/Pusty/AreWeIoTYet/tree/main/riot/examples/rust-nimble_scanner) registers a `scan` command and when it is entered either with or without a timeout argument it waits that long and prints out the received advertisements.
+The [Rust BLE Scanning Example](https://github.com/ds-kiel/AreWeIoTYet/tree/main/riot/examples/rust-nimble_scanner) registers a `scan` command and when it is entered either with or without a timeout argument it waits that long and prints out the received advertisements.
 
 When running the [`riot_demo`](build.html#riot_demo) this is what the scanner receives:
 
